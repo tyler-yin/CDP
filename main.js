@@ -9,12 +9,12 @@ for (let i = 0; i < 101; i++) {
 }
 
 // TODO: QA MEDIA QUERIES
-$(document).ready(function() {
-  $(".number").mousedown(function() {
+$(document).ready(() => {
+  $(".number").mousedown(() => {
     $(".flash").fadeIn(80);
   }); 
 
-  $(".number").mouseup(function() {
+  $(".number").mouseup(() => {
     $(".flash").fadeOut(80);
   });  
     
@@ -182,46 +182,3 @@ function enableTouchMove() {
 function touchMoveHandler(event) {
   event.preventDefault();
 }
-
-
-
-
-
-// ***NOT IN USE
-// function isTouchDevice() {
-//   var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
-//   var mq = function(query) {
-//     return window.matchMedia(query).matches;
-//   }
-
-//   if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
-//     return true;
-//   }
-
-//   // include the 'heartz' as a way to have a non matching MQ to help terminate the join -- https://git.io/vznFH
-//   var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
-//   return mq(query);
-// }
-
-// window.addEventListener('touchstart', (event) => {
-//   onMouseDown(event);
-// });
-
-// window.addEventListener('touchmove', (event) => {
-//   onMouseDrag(event);
-// });
-
-
-// // Media Queries
-    // var mq = window.matchMedia('(max-width: 600px)'); // 768?
-    // onResize(mq);
-    // mq.addListener(onResize);
-
-    // function onResize(mq) {
-    //   if (mq.matches) {
-    //     if (browseMode) enableScroll(); // browseMode on mobile
-    //     else disableScroll(); // editModes on mobile
-    //   } else {
-    //     enableScroll(); // all modes on desktop
-    //   }
-    // }
