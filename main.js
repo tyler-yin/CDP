@@ -3,12 +3,58 @@ var editMode = false;
 var drawingMode = false;
 // var totalHeight, totalWidth;
 
+var bool = {};
+for (let i = 0; i < 101; i++) {
+  bool[i] = false;
+  console.log(bool[i]);
+}
+
 // TODO: QA MEDIA QUERIES
 // TODO: remove jQuery if possible
 $(document).ready(function() {
-  // totalHeight = document.body.clientHeight;
-  // totalWidth = document.body.clientWidth;
-  
+
+ $(".number").mousedown(function(){
+     $(".flash").fadeIn(80);
+ }); 
+
+$(".number").mouseup(function(){
+     $(".flash").fadeOut(80);
+ });  
+    
+  //—————————————————————CONSUME QUOTES ANCHOR————————————————————————————
+  for (let i = 0; i < 101; i++) {
+    $(`#C1-${i}`).click(()=>{
+      $('html, body').animate({
+        scrollTop: $(`#tC1-${i}`).offset().top - 30
+      }, 500);
+      $(`#C1-${i}`).attr('style', 'background-color: black; color:white;');
+      bool[i] = true;
+      console.log(bool[i]);
+    });
+  }
+    
+   for (let i = 0; i < 51; i++) {
+    $(`#C2-${i}`).click(()=>{
+      $('html, body').animate({
+        scrollTop: $(`#fC1-${i}`).offset().top - 30
+      }, 500);
+      $(`#C2-${i}`).attr('style', 'background-color: black; color:white;');
+      bool[i] = true;
+      console.log(bool[i]);
+    });
+  }
+    
+  for (let i = 0; i < 51; i++) {
+    $(`#C3-${i}`).click(()=>{
+      $('html, body').animate({
+        scrollTop: $(`#iC1-${i}`).offset().top - 30
+      }, 500);
+      $(`#C3-${i}`).attr('style', 'background-color: black; color:white;');
+      bool[i] = true;
+      console.log(bool[i]);
+    });
+  }
+    
   $("#arrow").click(() => {
     enableBrowseMode();
 
@@ -158,6 +204,17 @@ function enableTouchMove() {
 function touchMoveHandler(event) {
   event.preventDefault();
 }
+
+
+
+
+
+
+
+
+
+
+
 
 // window.addEventListener('touchstart', (event) => {
 //   onMouseDown(event);
