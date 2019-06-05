@@ -1,7 +1,6 @@
 var browseMode = true;
 var editMode = false;
 var drawingMode = false;
-// var totalHeight, totalWidth;
 
 var bool = {};
 for (let i = 0; i < 101; i++) {
@@ -10,37 +9,33 @@ for (let i = 0; i < 101; i++) {
 }
 
 // TODO: QA MEDIA QUERIES
-// TODO: remove jQuery if possible
 $(document).ready(function() {
+  $(".number").mousedown(function() {
+    $(".flash").fadeIn(80);
+  }); 
 
- $(".number").mousedown(function(){
-     $(".flash").fadeIn(80);
- }); 
-
-$(".number").mouseup(function(){
-     $(".flash").fadeOut(80);
- });  
+  $(".number").mouseup(function() {
+    $(".flash").fadeOut(80);
+  });  
     
-  //—————————————————————CONSUME QUOTES ANCHOR————————————————————————————
+  // CDP Anchor links
   for (let i = 0; i < 101; i++) {
     $(`#C1-${i}`).click(()=>{
       $('html, body').animate({
         scrollTop: $(`#tC1-${i}`).offset().top - 30
       }, 500);
-      $(`#C1-${i}`).attr('style', 'background-color: black; color:white;');
+      $(`#C1-${i}`).attr('style', 'background-color: black; color: white;');
       bool[i] = true;
-      console.log(bool[i]);
     });
   }
     
-   for (let i = 0; i < 51; i++) {
+  for (let i = 0; i < 51; i++) {
     $(`#C2-${i}`).click(()=>{
       $('html, body').animate({
         scrollTop: $(`#fC1-${i}`).offset().top - 30
       }, 500);
-      $(`#C2-${i}`).attr('style', 'background-color: black; color:white;');
+      $(`#C2-${i}`).attr('style', 'background-color: black; color: white;');
       bool[i] = true;
-      console.log(bool[i]);
     });
   }
     
@@ -49,9 +44,8 @@ $(".number").mouseup(function(){
       $('html, body').animate({
         scrollTop: $(`#iC1-${i}`).offset().top - 30
       }, 500);
-      $(`#C3-${i}`).attr('style', 'background-color: black; color:white;');
+      $(`#C3-${i}`).attr('style', 'background-color: black; color: white;');
       bool[i] = true;
-      console.log(bool[i]);
     });
   }
     
@@ -122,7 +116,12 @@ function enableDrawingMode() {
   }
 }
 
-// Scrolling Handler Functions
+// Printing function 
+function printDoc() {
+  window.print();
+}
+
+// Scrolling handler functions
 var keys = {37: 1, 38: 1, 39: 1, 40: 1};
   // left: 37, up: 38, right: 39, down: 40,
   // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
@@ -164,30 +163,9 @@ function enableScroll() {
   document.onkeydown = null; 
 }
 
-// Print
-function printDoc() {
-  window.print();
-}
-
-// Device Detecting 
+// Device detecting
 function isMobileDevice() {
   return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-};
-
-// ***NOT IN USE
-function isTouchDevice() {
-  var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
-  var mq = function(query) {
-    return window.matchMedia(query).matches;
-  }
-
-  if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
-    return true;
-  }
-
-  // include the 'heartz' as a way to have a non matching MQ to help terminate the join -- https://git.io/vznFH
-  var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
-  return mq(query);
 }
 
 // iOS touchmove handling
@@ -209,12 +187,21 @@ function touchMoveHandler(event) {
 
 
 
+// ***NOT IN USE
+// function isTouchDevice() {
+//   var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
+//   var mq = function(query) {
+//     return window.matchMedia(query).matches;
+//   }
 
+//   if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+//     return true;
+//   }
 
-
-
-
-
+//   // include the 'heartz' as a way to have a non matching MQ to help terminate the join -- https://git.io/vznFH
+//   var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
+//   return mq(query);
+// }
 
 // window.addEventListener('touchstart', (event) => {
 //   onMouseDown(event);
