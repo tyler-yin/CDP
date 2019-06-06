@@ -394,3 +394,10 @@ ul li::before {
 #q2 {
     opacity: .5;
 }
+
+.open{
+    position:fixed;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
