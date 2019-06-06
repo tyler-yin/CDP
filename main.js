@@ -1,14 +1,80 @@
 var browseMode = true;
 var editMode = false;
 var drawingMode = false;
-// var totalHeight, totalWidth;
+
+var bool = {};
+for (let i = 0; i < 101; i++) {
+  bool[i] = false;
+  console.log(bool[i]);
+}
+
+var digestIndexx = false;
+var consumeIndexx = false;
+var produceIndexx = false;
 
 // TODO: QA MEDIA QUERIES
-// TODO: remove jQuery if possible
-$(document).ready(function() {
-  // totalHeight = document.body.clientHeight;
-  // totalWidth = document.body.clientWidth;
-  
+$(document).ready(() => {
+
+  // Flashing graphic
+  $(".number").mousedown(() => {
+    $(".flash").fadeIn(80);
+  }); 
+
+  $(".number").mouseup(() => {
+    $(".flash").fadeOut(80);
+  });
+
+  // CDP Link handling
+  if(digestIndexx == true && consumeIndexx == true && produceIndexx == true){
+    console.log("yes");
+  }
+
+  $(`#digestIndex`).click(() => {
+    $(`#digestIndex`).attr('style', 'background-color: black; color:white; text-shadow: 0px 0px 10px white;');
+    digestIndexx = true;
+  });
+
+  $(`#consumeIndex`).click(() => {
+    $(`#consumeIndex`).attr('style', 'background-color: black; color:white; text-shadow: 0px 0px 10px white;');
+    consumeIndexx=true;
+  });
+
+  $(`#produceIndex`).click(() => {
+    $(`#produceIndex`).attr('style', 'background-color: black; color:white; text-shadow: 0px 0px 10px white;');
+    produceIndexx=true;
+  });
+    
+  // CDP Anchor links
+  for (let i = 0; i < 101; i++) {
+    $(`#C1-${i}`).click(()=>{
+      $('html, body').animate({
+        scrollTop: $(`#tC1-${i}`).offset().top - 30
+      }, 500);
+      $(`#C1-${i}`).attr('style', 'background-color: black; color: white; text-shadow: 0px 0px 10px white;');
+      bool[i] = true;
+    });
+  }
+    
+  for (let i = 0; i < 51; i++) {
+    $(`#C2-${i}`).click(()=>{
+      $('html, body').animate({
+        scrollTop: $(`#fC1-${i}`).offset().top - 30
+      }, 500);
+      $(`#C2-${i}`).attr('style', 'background-color: black; color: white; text-shadow: 0px 0px 10px white;');
+      bool[i] = true;
+    });
+  }
+    
+  for (let i = 0; i < 51; i++) {
+    $(`#C3-${i}`).click(()=>{
+      $('html, body').animate({
+        scrollTop: $(`#iC1-${i}`).offset().top - 30
+      }, 500);
+      $(`#C3-${i}`).attr('style', 'background-color: black; color: white; text-shadow: 0px 0px 10px white;');
+      bool[i] = true;
+    });
+  }
+    
   $("#arrow").click(() => {
     enableBrowseMode();
 
@@ -76,7 +142,12 @@ function enableDrawingMode() {
   }
 }
 
-// Scrolling Handler Functions
+// Printing function 
+function printDoc() {
+  window.print();
+}
+
+// Scrolling handler functions
 var keys = {37: 1, 38: 1, 39: 1, 40: 1};
   // left: 37, up: 38, right: 39, down: 40,
   // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
@@ -118,30 +189,9 @@ function enableScroll() {
   document.onkeydown = null; 
 }
 
-// Print
-function printDoc() {
-  window.print();
-}
-
-// Device Detecting 
+// Device detecting
 function isMobileDevice() {
   return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-};
-
-// ***NOT IN USE
-function isTouchDevice() {
-  var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
-  var mq = function(query) {
-    return window.matchMedia(query).matches;
-  }
-
-  if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
-    return true;
-  }
-
-  // include the 'heartz' as a way to have a non matching MQ to help terminate the join -- https://git.io/vznFH
-  var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
-  return mq(query);
 }
 
 // iOS touchmove handling
@@ -158,26 +208,3 @@ function enableTouchMove() {
 function touchMoveHandler(event) {
   event.preventDefault();
 }
-
-// window.addEventListener('touchstart', (event) => {
-//   onMouseDown(event);
-// });
-
-// window.addEventListener('touchmove', (event) => {
-//   onMouseDrag(event);
-// });
-
-
-// // Media Queries
-    // var mq = window.matchMedia('(max-width: 600px)'); // 768?
-    // onResize(mq);
-    // mq.addListener(onResize);
-
-    // function onResize(mq) {
-    //   if (mq.matches) {
-    //     if (browseMode) enableScroll(); // browseMode on mobile
-    //     else disableScroll(); // editModes on mobile
-    //   } else {
-    //     enableScroll(); // all modes on desktop
-    //   }
-    // }
