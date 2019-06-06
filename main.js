@@ -13,6 +13,7 @@ var produceIndexx = false;
 
 // TODO: QA MEDIA QUERIES
 $(document).ready(() => {
+  $("html").css("cursor", "url('assets/arrow.png'), pointer");
 
   // Flashing graphic
   $(".number").mousedown(() => {
@@ -90,6 +91,7 @@ $(document).ready(() => {
     $("body").css("cursor", "url(assets/arrow.png), auto");
     $("#pen, #text").css("border-bottom", "0px solid black");
     $("#paperCanvas").css("pointer-events", "none");
+    $(".links").css("pointer-events", "auto");
     $("#textContainer").css("pointer-events", "auto");
     $("#textContainer").attr('contentEditable', false);
   });
@@ -104,6 +106,7 @@ $(document).ready(() => {
     $("body").css("cursor", "url(assets/text.png), auto");
     $("#arrow, #pen").css("border-bottom", "0px solid black");
     $("#paperCanvas").css("pointer-events", "none");
+    $(".links").css("pointer-events", "none");
     $("#textContainer").css("pointer-events", "auto");
     $("#textContainer").attr('contentEditable', true);
   });
@@ -118,6 +121,7 @@ $(document).ready(() => {
     $("body").css("cursor", "url(assets/pen.png), auto");
     $("#arrow, #text").css("border-bottom", "0px solid black");
     $("#paperCanvas").css("pointer-events", "initial");
+    $(".links").css("pointer-events", "auto");
     $("#textContainer").css("pointer-events", "none");
     $("#textContainer").attr('contentEditable', false);
   });
