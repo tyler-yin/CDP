@@ -24,22 +24,22 @@ $(document).ready(() => {
     $(".flash").fadeOut(80);
   });
 
-  // Index
+  // CDP Link handling
   if(digestIndexx == true && consumeIndexx == true && produceIndexx == true){
     console.log("yes");
   }
 
-  $(`#digestIndex`).click(()=>{
+  $(`#digestIndex`).click(() => {
     $(`#digestIndex`).attr('style', 'background-color: black; color:white; text-shadow: 0px 0px 10px white;');
     digestIndexx = true;
   });
 
-  $(`#consumeIndex`).click(()=>{
+  $(`#consumeIndex`).click(() => {
     $(`#consumeIndex`).attr('style', 'background-color: black; color:white; text-shadow: 0px 0px 10px white;');
     consumeIndexx=true;
   });
 
-  $(`#produceIndex`).click(()=>{
+  $(`#produceIndex`).click(() => {
     $(`#produceIndex`).attr('style', 'background-color: black; color:white; text-shadow: 0px 0px 10px white;');
     produceIndexx=true;
   });
