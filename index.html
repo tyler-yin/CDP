@@ -9,10 +9,154 @@
     <script src="main.js"></script>
   </head>
   <body>
+    <canvas id="paperCanvas" resize="true"></canvas>
+    <img class="mark" id="q" src="assets/qmark.png">
+    <img class="logo" src="assets/logo.gif">
+    <div class="cursor-container no-print">
+      <img class="button" id="text" src="assets/cursor-02.png">
+      <img class="button" id="arrow" src="assets/cursor-03.png">
+      <img class="button" id="pen" src="assets/cursor-04.png">
+    </div>
 
-      <a href="website.html"><img class="open" src="assets/WEBSITESTARS.gif"></a>
+    <div id="title">
       
-      <script language="JavaScript" type="text/javascript">
+    </div>
+
+    <div class="text-container" id="textContainer">
+      <div id="preface">
+        <span class="times">
+          <br>
+          Preface: Website, <span id="italic">consumedigestproduce.us</span> was produced in 2019 by Chinese-American designer and artist, Stefanie Tam (b. 1997) in conjunction with book, <span id="italic">Consume Digest Produce: On the Nature of American Consumption/Digestion/Production of Information</span>, and installation, <span id="italic">“that-i.do/not_ think?I=know_what&I_do_not=know” (2019)</span>.
+          <br />
+          <br />
+          The digital space is inundated with information, advertisements, cookies, news articles, algorithmic based feeds, personal status updates, and dog videos; as it continues to grow and evolve at an unpredictable rate, concerns of privacy, misuse of personal data, exploitation and persuasion of political beliefs, and the unregulated access to and production of content have become increasingly urgent topics. 
+          <br />
+          <br />
+          I find myself having more questions than answers (I do not have answers nor am I a proponent for  explicit answers):
+          <br />
+          <br />
+          
+          <ol id="points">
+            <span id="questions">
+              <div>
+                <li id="belowTen">
+                What would the world look like if Mark Zuckerberg, 
+                Jeff Bezos, Steve Jobs, 
+                Sundar Pichai—to name a few—knew what Facebook, Amazon, Apple, and Google would be today at the start of their companies? Would 
+                they still have chosen to pursue their paths?
+                </li>
+                <li id="belowTen">
+                The largest and most commonly visited websites are driven by capital. How, as a user, am I directly being influenced by the structural design of these websites? And how am I by those that aren’t driven by capital or an agenda?
+                </li>
+                <li id="belowTen">
+                How would the culture of consumption and production change if words such as “curiosity” and “innovation” rigidly held negative connotations? And if those such as “skepticism” and “caution” rigidly held positive connotations?
+                </li>
+                <li id="belowTen">    
+                How would belief systems shift if information being consumed was not algorithmically driven nor biased?
+                </li>
+                </div>
+                <div>
+                <li id="belowTen">      
+                Where quick-to-develop online communities flourish from shared values and beliefs, what acts as a separation of belief and truth?
+                </li>
+                <li id="belowTen">
+                Where the ability to consume, digest, and produce (via internet) is uncontrolled and exponentially quick to evolve, is there a way to more actively form the space we occupy as the space simultaneously 
+                forms us? 
+                </li>
+                <li id="belowTen">
+                What incites change? Is 
+                there a way to detect when
+                change is necessary and/or self indulgent and
+                /or hypocritical?
+                </li>
+                <li id="belowTen">
+                What purpose does asking these questions have? I'm not entirely sure, but I have many. I suggest you ask some too.
+                </li>
+              </div>
+            </span>
+          </ol>
+                
+          Through the lens of the words, “CONSUME”, “DIGEST”, and “PRODUCE”, I view the nature of human interaction with today's physical and digital space. This process is to gain a better understanding of confusion, multiplicity, and contradiction as opposed to arriving at explicit explanations as to why things are the way they are. 
+
+          <br />
+          <br />
+
+          Over the course of this website, I collect 1) quotations from proponents and opponents of today's digital production culture and statistics of media consumption, digestion, and production 2) figures of data visualization about media consumption, digestion, and production, and 3) the images used as learning reinforcement for peoples' online assertions about digital consumption, digestion, and production. The following list includes some helpful guidelines and loose rules to assist the user in navigating and engaging with the content that follows.
+          
+          <br />
+          <br />
+
+          As an attempt to highlight the inundation of information of a 2019 digital space, the insidious effects of semiocapitalism, and the seemingly futile nature of the producer's search for truth and meaning, I simultaneously archive digital artifacts of our time for future reference. With “maximum effort, [and] minimal results”, I share my exploration of the digital unknown through exhaustive data collection, questioning, curiosity, contradiction, confusion, and admiration for the absurd.
+        </span>
+      </div>
+
+      <ol id="points">
+        <li id="belowTen">
+          Creating this website is an active and passive process of producing, consuming, and digesting. Viewing this website is an active and passive process of producing, consuming, and digesting.
+        </li>
+        <li id="belowTen">
+          This edited website is within your view and your view only; it is limited to your immediate vicinity. This website, however, is accessible to billions of others. Converse with it.
+        </li>
+        <li id="belowTen">
+          This website is neither fictitious nor non-fictitious. This website is passive and active. This website is fast and slow. This website is linear and nonlinear. This website is yours and simultaneously mine.
+        </li>
+        <li id="belowTen">
+          Question the contents. Accept the contents. Where do they meet?
+        </li>
+        <li id="belowTen">
+          See chaos. See structure. How does this create and shift meaning?
+        </li>
+        <li id="belowTen">
+          See contradiction. See patterns. Are they really there?
+        </li>
+        <li id="belowTen">
+          Be skeptical. Be optimistic. Is neutrality possible? 
+        </li>
+        <li id="belowTen">
+          Write on this website. Highlight things. Strike through things. Draw a penis. Leave a secret message. What does this say about you, about me?
+        </li>
+        <li id="belowTen">
+          Engage with this website as deeply or as shallowly as you’d like to. Something will change.
+        </li>
+        <li id="aboveTen">
+          Reflect on your changed state, understand your level of engagement. What frustrates you, excites you?
+        </li>
+        <li id="aboveTen">
+          Engaging with this website is an exchange, a conversation. You and I both are authors.
+        </li>
+        <li id="aboveTen">
+          What/how you and I consume inherently affects/depends on what you and I digest and produce. What/how you and I digest inherently affects/depends on what you and I produce and consume.
+          What/how you and I produce inherently affects/depends on what you and I consume and digest. 
+        </li>
+        <li id="aboveTen">
+          By making this website, I am agreeing to think twice about what/how I presently produce, consume, digest and what/how I choose to proceed to produce, consume, digest in the future.
+        </li>
+        <li id="aboveTen">
+          By engaging with this website, you are agreeing to think twice about what/how you presently produce, consume, digest, and what/how you choose to proceed to produce, consume, digest in the future.
+        </li>
+      </ol>
+    </div>
+    
+    <div class="links" id="title">
+      <div>
+        <span onclick='window.open("consume.html")' class="enter" id="consumeIndex">
+          Consume
+        </span>
+      </div>
+      <div>
+        <span onclick='window.open("digest.html")' class="enter" id="digestIndex">
+          Digest
+        </span>
+      </div>
+      <div>
+        <span onclick='window.open("produce.html")' class="enter" id="produceIndex">
+          Produce  
+        </span>
+      </div>
+    </div>
+  </body>
+
+  <script language="JavaScript" type="text/javascript">
 		(function titleScroller(text) {
 			document.title = text;
 			setTimeout(function () {
@@ -20,5 +164,4 @@
 			}, 500);
 		}("CON DIG PRO; DIG PRO CON; PRO CON DIG; "));
 	</script>
-  </body>
 </html>
