@@ -13,6 +13,7 @@ var produceIndexx = false;
 
 // TODO: QA MEDIA QUERIES
 $(document).ready(() => {
+  $("html").css("cursor", "url('assets/arrow.png'), pointer");
 
   // Flashing graphic
   $(".number").mousedown(() => {
