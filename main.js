@@ -5,7 +5,6 @@ var drawingMode = false;
 var bool = {};
 for (let i = 0; i < 101; i++) {
   bool[i] = false;
-  console.log(bool[i]);
 }
 
 var digestIndexx = false;
@@ -25,23 +24,28 @@ $(document).ready(() => {
   });
 
   // CDP Link handling
-  if(digestIndexx == true && consumeIndexx == true && produceIndexx == true){
-    console.log("yes");
-  }
-
   $(`#digestIndex`).click(() => {
     $(`#digestIndex`).attr('style', 'background-color: black; color:white; text-shadow: 0px 0px 10px white;');
     digestIndexx = true;
+    if (digestIndexx && consumeIndexx && produceIndexx) {
+      $('.mark').attr('src', 'assets/xmark.png');
+    }
   });
 
   $(`#consumeIndex`).click(() => {
     $(`#consumeIndex`).attr('style', 'background-color: black; color:white; text-shadow: 0px 0px 10px white;');
-    consumeIndexx=true;
+    consumeIndexx = true;
+    if (digestIndexx && consumeIndexx && produceIndexx) {
+      $('.mark').attr('src', 'assets/xmark.png');
+    }
   });
 
   $(`#produceIndex`).click(() => {
     $(`#produceIndex`).attr('style', 'background-color: black; color:white; text-shadow: 0px 0px 10px white;');
-    produceIndexx=true;
+    produceIndexx = true;
+    if (digestIndexx && consumeIndexx && produceIndexx) {
+      $('.mark').attr('src', 'assets/xmark.png');
+    }
   });
     
   // CDP Anchor links
@@ -74,33 +78,46 @@ $(document).ready(() => {
       bool[i] = true;
     });
   }
-    
+  
+  // Cursor & mode handling
   $("#arrow").click(() => {
     enableBrowseMode();
 
-    $("#arrow").css("border-bottom", "3px solid black");
+    $("#arrow").addClass("invert");
+    $("#pen").removeClass("invert");
+    $("#text").removeClass("invert");
+
     $("body").css("cursor", "url(assets/arrow.png), auto");
     $("#pen, #text").css("border-bottom", "0px solid black");
-    $("#textContainer").css("pointer-events", "initial");
+    $("#paperCanvas").css("pointer-events", "none");
+    $("#textContainer").css("pointer-events", "auto");
     $("#textContainer").attr('contentEditable', false);
   });
   
   $("#text").click(() => {
     enableEditMode();
 
-    $("#text").css("border-bottom", "3px solid black");
+    $("#text").addClass("invert");
+    $("#pen").removeClass("invert");
+    $("#arrow").removeClass("invert");
+    
     $("body").css("cursor", "url(assets/text.png), auto");
     $("#arrow, #pen").css("border-bottom", "0px solid black");
-    $("#textContainer").css("pointer-events", "initial");
+    $("#paperCanvas").css("pointer-events", "none");
+    $("#textContainer").css("pointer-events", "auto");
     $("#textContainer").attr('contentEditable', true);
   });
 
   $("#pen").click(() => {
     enableDrawingMode();
 
-    $("#pen").css("border-bottom", "3px solid black");
+    $("#pen").addClass("invert");
+    $("#arrow").removeClass("invert");
+    $("#text").removeClass("invert");
+
     $("body").css("cursor", "url(assets/pen.png), auto");
     $("#arrow, #text").css("border-bottom", "0px solid black");
+    $("#paperCanvas").css("pointer-events", "initial");
     $("#textContainer").css("pointer-events", "none");
     $("#textContainer").attr('contentEditable', false);
   });
@@ -148,15 +165,15 @@ var keys = {37: 1, 38: 1, 39: 1, 40: 1};
 function preventDefault(e) {
   e = e || window.event;
   if (e.preventDefault)
-      e.preventDefault();
+    e.preventDefault();
   e.returnValue = false;  
 }
 
 function preventDefaultForScrollKeys(e) {
-    if (keys[e.keyCode]) {
-        preventDefault(e);
-        return false;
-    }
+  if (keys[e.keyCode]) {
+    preventDefault(e);
+    return false;
+  }
 }
 
 function disableScroll() {
