@@ -173,7 +173,6 @@ li {
     background: black;
     color: white;
     text-shadow: 0px 0px 10px white;
-    cursor: url(assets/arrow.png) !important;
 }
 
 #digest {
