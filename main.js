@@ -104,8 +104,6 @@ $(document).ready(() => {
     $("#textContainer").css("pointer-events", "none");
     $("#textContainer").attr('contentEditable', false);
   });
-
-  $("#print").click(printDoc);
 });
 
 // Site Mode Handlers
@@ -140,11 +138,6 @@ function enableDrawingMode() {
   if (isMobileDevice()) {
     disableTouchMove();
   }
-}
-
-// Printing function 
-function printDoc() {
-  window.print();
 }
 
 // Scrolling handler functions

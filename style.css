@@ -21,12 +21,9 @@
     }
 }
 
-/* #times {
-    font: times new roman;
-} */
-
 canvas {
     position: fixed;
+    z-index: 5;
     /* HACKY FIX */
     transform: translate3d(0,0,0);
 }
@@ -171,25 +168,6 @@ li {
 .share-container {
     display: flex;
     justify-content: space-evenly;
-}
-
-#print, #publish {
-    color: white;
-    text-shadow: 1px 1px 4px white;
-    background-color:black;
-    box-shadow: 1px 1px 10px black;
-    padding:10px;
-    border: 2px solid #000;
-    text-align: center;
-}
-
-#print:hover, #publish:hover a {
-    color:black;
-}
-
-#publish a {
-    text-decoration: none;
-    color: white;
 }
 
 #questions {
