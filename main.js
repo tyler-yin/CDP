@@ -8,15 +8,41 @@ for (let i = 0; i < 101; i++) {
   console.log(bool[i]);
 }
 
+var digestIndexx = false;
+var consumeIndexx = false;
+var produceIndexx = false;
+
 // TODO: QA MEDIA QUERIES
 $(document).ready(() => {
+
+  // Flashing graphic
   $(".number").mousedown(() => {
     $(".flash").fadeIn(80);
   }); 
 
   $(".number").mouseup(() => {
     $(".flash").fadeOut(80);
-  });  
+  });
+
+  // Index
+  if(digestIndexx == true && consumeIndexx == true && produceIndexx == true){
+    console.log("yes");
+  }
+
+  $(`#digestIndex`).click(()=>{
+    $(`#digestIndex`).attr('style', 'background-color: black; color:white; text-shadow: 0px 0px 10px white;');
+    digestIndexx = true;
+  });
+
+  $(`#consumeIndex`).click(()=>{
+    $(`#consumeIndex`).attr('style', 'background-color: black; color:white; text-shadow: 0px 0px 10px white;');
+    consumeIndexx=true;
+  });
+
+  $(`#produceIndex`).click(()=>{
+    $(`#produceIndex`).attr('style', 'background-color: black; color:white; text-shadow: 0px 0px 10px white;');
+    produceIndexx=true;
+  });
     
   // CDP Anchor links
   for (let i = 0; i < 101; i++) {
@@ -24,7 +50,7 @@ $(document).ready(() => {
       $('html, body').animate({
         scrollTop: $(`#tC1-${i}`).offset().top - 30
       }, 500);
-      $(`#C1-${i}`).attr('style', 'background-color: black; color: white;');
+      $(`#C1-${i}`).attr('style', 'background-color: black; color: white; text-shadow: 0px 0px 10px white;');
       bool[i] = true;
     });
   }
@@ -34,7 +60,7 @@ $(document).ready(() => {
       $('html, body').animate({
         scrollTop: $(`#fC1-${i}`).offset().top - 30
       }, 500);
-      $(`#C2-${i}`).attr('style', 'background-color: black; color: white;');
+      $(`#C2-${i}`).attr('style', 'background-color: black; color: white; text-shadow: 0px 0px 10px white;');
       bool[i] = true;
     });
   }
@@ -44,7 +70,7 @@ $(document).ready(() => {
       $('html, body').animate({
         scrollTop: $(`#iC1-${i}`).offset().top - 30
       }, 500);
-      $(`#C3-${i}`).attr('style', 'background-color: black; color: white;');
+      $(`#C3-${i}`).attr('style', 'background-color: black; color: white; text-shadow: 0px 0px 10px white;');
       bool[i] = true;
     });
   }

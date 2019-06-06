@@ -34,11 +34,15 @@ canvas {
 body {
     margin: 0 !important;
     background-color: white;
-    cursor: url(assets/arrow.png), auto;
+    cursor: url(assets/arrow.png);
     text-align: justify;
     text-justify: inter-word;
     hyphens: auto;
     position:relative;
+}
+
+.mark, .logo {
+    pointer-events: none;
 }
 
 .text-container {
@@ -78,6 +82,13 @@ body {
     position: fixed;
 }
 
+.logo {
+    width:13%;
+    position: fixed;
+    top:34px;
+    left:3vw;
+}
+
 #titlePage {
     margin-top:0px;
     text-align: left;
@@ -105,7 +116,9 @@ body {
     top:20px;
     z-index: 10;
     padding:10px;
-
+    background-color:none;
+    box-shadow: 0px 0px 10px 5px black;
+    
     /* HACKY FIX */
     transform: translate3d(0,0,0);
 }
@@ -187,13 +200,20 @@ li {
 
 .enter {
     text-decoration: none;
-    color:white;
-    background: black;
+    color:black;
+    background: none;
     padding-top:-100px;
-    box-shadow: 0px 0px 7px 2px black;
-    text-shadow: 0px 0px 10px #FFFFFF;
+    box-shadow: 0px 0px 10px 5px black;
+    text-shadow: 0px 0px 10px black;
     bottom: 10px;
     line-height: 9vw;
+}
+
+.enter:hover {
+    background: black;
+    color: white;
+    text-shadow: 0px 0px 10px white;
+    cursor: url(assets/arrow.png);
 }
 
 #digest {
@@ -204,12 +224,16 @@ li {
     bottom:0px;
 }
 
+div:hover {
+    cursor: url(assets/arrow.png);
+}
+
 .number {
     z-index: 100;
     font-size:30px;
     text-align: justify;
     box-shadow: 0px 0px 7px 2px black;
-    background: white;
+    background: none;
     color: black;
 }
 
@@ -262,6 +286,15 @@ li {
     padding-left: 3vw;
     font-family: arial;
     }
+
+    .flash {
+        display:none;
+        position:fixed;
+        width:60%;
+        right:3vw;
+        bottom:3vw;
+        z-index:100;
+    }
 }
 
 @media screen and (min-width: 1151px) {
@@ -275,6 +308,15 @@ li {
     font-size: 30px;
     padding-left: 3vw;
     font-family: arial;
+    }
+
+    .flash {
+        display:none;
+        position:fixed;
+        width:40%;
+        right:3vw;
+        bottom:3vw;
+        z-index:100;
     }
 }
 
@@ -290,6 +332,15 @@ li {
     padding-left: 3vw;
     font-family: arial;
     }
+
+    .flash {
+        display:none;
+        position:fixed;
+        width:30%;
+        right:3vw;
+        bottom:3vw;
+        z-index:100;
+    }
 }
     
 ul li::before {
@@ -301,13 +352,6 @@ ul li::before {
 }
 
 .flash {
-    display:none;
-    position:fixed;
-    width:30%;
-    right:3vw;
-    bottom:3vw;
-    z-index:100;
-
     pointer-events: none;
 }
 
@@ -352,3 +396,15 @@ ul li::before {
     }
 }
 
+.mark {
+    z-index: 0;
+    position:fixed;
+    width:100vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#q2 {
+    opacity: .5;
+}
